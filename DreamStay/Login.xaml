@@ -1,0 +1,20 @@
+﻿<Window x:Class="DreamStay.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DreamStay"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800"
+        Background="#241f21">
+    <Grid>
+        <StackPanel>
+            <Label Foreground="White">Felhasználónév:</Label>
+            <TextBox Background="#241f21" Foreground="White" x:Name="txbFelhaszn" >Felhasználónév</TextBox>
+            <Label Foreground="White">Jelszó:</Label>
+            <TextBox Background="#241f21" Foreground="White" x:Name="txbJelszo" >Jelszó</TextBox>
+            <Button Width="120" Height="30" Margin="10" Click="Button_Click">Belépés</Button>
+            <Button Width="120" Height="30"  Name="btnBack" Click="btnBack_Click">Vissza</Button>
+        </StackPanel>
+    </Grid>
+</Window>
