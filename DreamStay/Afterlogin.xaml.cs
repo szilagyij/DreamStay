@@ -21,9 +21,11 @@ namespace DreamStay
     {
        public static List<Szemely> szemelyek=new List<Szemely>();
        public static List<Szoba> szobalista=new List<Szoba>();
+       public static List<RoomLog>Szobalog=new List<RoomLog>();
        private Button clicked;
        private string szam;
        RoomDiary ujablak;
+       Stats stats;
 
         public Afterlogin()
         {
@@ -39,8 +41,32 @@ namespace DreamStay
                 szobalista.Add(new Szoba(i,rnd.Next(2,4),szobaara,false,szobaara,def));
             }
 
+            ProcessButtons(stckbtns);
+            ProcessButtons(stckbtns1);
+           
+
+
+
             stck.Visibility = Visibility.Hidden;
         }
+
+        private void ProcessButtons(Panel panel)
+        {
+            foreach (UIElement element in panel.Children)
+            {
+                if (element is Button button)
+                {
+                    foreach (var szoba in Szobalog)
+                    {
+                        if (szoba.Allapot == "foglalt" && button.Name == $"btn{szoba.Szobaszam}")
+                        {
+                            button.IsEnabled = false;
+                        }
+                    }
+                }
+            }
+        }
+
         //előjegyzett, teljesült, lemondott
         private void foglalas(object sender, RoutedEventArgs e)
         {
@@ -63,8 +89,7 @@ namespace DreamStay
             {
                 bool isVipChecked = cboxvip.IsChecked == true ? true : false;
                 szemelyek.Add(new Szemely(textBoxnev.Text+textboxmail.Text,textBoxnev.Text,textboxszuldatum.SelectedDate.Value,textboxmail.Text,isVipChecked));
-
-
+                
 
                 if (isVipChecked)
                 {
@@ -73,6 +98,8 @@ namespace DreamStay
                     {
                         finalprice.Content = $"A végösszeg: {(szobalista[int.Parse(szam) - 1].Fizetedendo) * int.Parse(txbfok.Text)} Ft";
                         szobalista[int.Parse(szam) - 1].Foglalte = true;
+
+                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam, double.Parse(finalprice.Content.ToString().Split(' ')[2]), "foglalt"));
                         clicked.IsEnabled = false;
                         MessageBox.Show("Sikeres foglalás");
                     }
@@ -88,6 +115,8 @@ namespace DreamStay
                         finalprice.Content = $"A végösszeg: {(szobalista[int.Parse(szam) - 1].Fizetedendo) * int.Parse(txbfok.Text)} Ft";
                         szobalista[int.Parse(szam) - 1].Foglalte = true;
                         clicked.IsEnabled = false;
+
+                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam,double.Parse(finalprice.Content.ToString().Split(' ')[2]), "foglalt"));
                         MessageBox.Show("Sikeres foglalás");
                     }
                     else
@@ -102,7 +131,6 @@ namespace DreamStay
                 MessageBox.Show("Mindent ki kell tölteni.");
             }
 
-
         }
 
         private void roomdiary_Click(object sender, RoutedEventArgs e)
@@ -111,6 +139,14 @@ namespace DreamStay
             ujablak = new RoomDiary();
             ujablak.Show();
             this.Close();
+        }
+
+        private void Statisztika_Click(object sender, RoutedEventArgs e)
+        {
+            stats=new Stats();
+            stats.Show();
+            this.Close();
+
         }
     }
 }

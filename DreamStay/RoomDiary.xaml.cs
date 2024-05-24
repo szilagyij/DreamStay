@@ -20,28 +20,82 @@ namespace DreamStay
     /// </summary>
     public partial class RoomDiary : Window
     {
-        private Button clicked;
+        Button clicked;
         private string szam;
+        private int current;
+        Afterlogin afterlogin;
         public RoomDiary()
         {
             InitializeComponent();
-            dgrSzobak.DataContext = Afterlogin.szobalista;
+            dgrSzobak.ItemsSource = Afterlogin.Szobalog;
+            dgrSzobak.Items.Refresh();
 
 
 
         }
         private void foglalas(object sender, RoutedEventArgs e)
         {
-            textboxmail.Text = "";
-            textBoxnev.Text = "";
-            textboxszuldatum.Text = "";
-            cboxvip.IsChecked = false;
+            textBoxazon.Text = "";
+            textboxszobaszam.Text = "";
+            stckgombok.Children.Clear();
+
+
+            Button btn=new Button();
+            btn.Content = "Fizetve";
+            btn.Click += fizetve_Click;
+            btn.Height = 30;
+            btn.Width = 120;
+            btn.Margin = new Thickness(10);
+            stckgombok.Children.Add(btn);
+
+            Button torles = new Button();
+            torles.Content = "Törlés";
+            torles.Click += Torles_Click;
+            torles.Height = 30;
+            torles.Width = 120;
+            torles.Margin = new Thickness(10);
+            stckgombok.Children.Add(torles);
+
+
             stck.Visibility = Visibility.Visible;
             szam = (sender as Button).Content.ToString();
             clicked = sender as Button;
-            finalprice.Content = $"A végösszeg: {Afterlogin.szobalista[int.Parse(szam) - 1].Fizetedendo}";
+            finalprice.Content = $"A végösszeg: {Afterlogin.szobalista[int.Parse(szam) - 1].Fizetedendo} Ft";
+
+            for (int i = 0; i < Afterlogin.Szobalog.Count; i++)
+            {
+
+                if (Afterlogin.Szobalog[i].Szobaszam == int.Parse(szam) && Afterlogin.Szobalog[i].Allapot == "foglalt")
+                {
+                    textBoxazon.Text = Afterlogin.Szobalog[i].Azon;
+                    textboxszobaszam.Text = Afterlogin.Szobalog[i].Szobaszam.ToString();
+                    txballapot.Content = $"Állapot: {Afterlogin.Szobalog[i].Allapot.ToString()}";
+                    current = i;
+                }
+
+            }
 
 
+
+
+        }
+
+        private void fizetve_Click(object sender, RoutedEventArgs e)
+        {
+            Afterlogin.Szobalog[current].Allapot="Fizetve";
+            dgrSzobak.Items.Refresh();
+        }
+        private void Torles_Click(object sender, RoutedEventArgs e)
+        {
+            Afterlogin.Szobalog.RemoveAt(current);
+            dgrSzobak.Items.Refresh();
+        }
+
+        private void btnVissza_Click(object sender, RoutedEventArgs e)
+        {
+            afterlogin = new Afterlogin();
+            afterlogin.Show();
+            this.Close();
         }
     }
 }

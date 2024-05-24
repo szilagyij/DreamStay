@@ -14,6 +14,7 @@
         <DataGrid Grid.Column="1" Name="dgrSzobak"></DataGrid>
 
         <StackPanel>
+            <Button Width="60" Height="20" Name="btnVissza" Click="btnVissza_Click" HorizontalAlignment="Left">Vissza</Button>
             <Label>Szobák száma:</Label>
             <StackPanel Orientation="Horizontal">
                 <Button Height="30" Width="50" Name="btn1" Click="foglalas" Content="1" Margin="15"/>
@@ -33,16 +34,14 @@
         
         
         <StackPanel Grid.Column="0" Name="stck" VerticalAlignment="Bottom">
-            <Label Content="Név"></Label>
-            <TextBox x:Name="textBoxnev" ></TextBox>
-            <Label Content="Születés dátuma"></Label>
-            <DatePicker Name="textboxszuldatum" ></DatePicker>
-            <Label Content="Email:"></Label>
-            <TextBox x:Name="textboxmail"></TextBox>
-            <Label Content="Hány főre?"></Label>
-            <TextBox x:Name="txbfok"></TextBox>
-            <CheckBox x:Name="cboxvip">Feliratokozik a hírlevélre?</CheckBox>
+            <Label Content="Azonosító:"></Label>
+            <TextBox x:Name="textBoxazon" ></TextBox>
+            <Label Content="Szobaszam"></Label>
+            <TextBox Name="textboxszobaszam" ></TextBox>
+            <Label Content="Állapot:" x:Name="txballapot"></Label>
+
             <Label Content="A végösszeg:" Name="finalprice"></Label>
+            <StackPanel x:Name="stckgombok" Orientation="Horizontal"></StackPanel>
         </StackPanel>
     </Grid>
 </Window>

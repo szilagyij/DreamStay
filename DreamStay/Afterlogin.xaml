@@ -13,14 +13,14 @@
         </Grid.ColumnDefinitions>
         <Image Source=".\images\szobak.png" Width="400" HorizontalAlignment="Left" Grid.Column="0"  Margin="0,102,0,102"></Image>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Name="stckbtns">
             <Button Height="30" Width="50" Name="btn1" Click="foglalas" Content="1" Margin="15"/>
             <Button Height="30" Width="50" Name="btn2" Click="foglalas" Content="2" Margin="15"></Button>
             <Button Height="30" Width="50"  Name="btn3" Click="foglalas" Content="3" Margin="15" ></Button>
             <Button Height="30" Width="50"  Name="btn4" Click="foglalas" Content="4" Margin="15"></Button>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Name="stckbtns1">
             <Button Height="30" Width="50"  Name="btn5" Click="foglalas" Content="5" Margin="15" ></Button>
             <Button Height="30" Width="50"  Name="btn6" Click="foglalas" Content="6" Margin="15"></Button>
             <Button Height="30" Width="50"  Name="btn7" Click="foglalas" Content="7" Margin="15"></Button>
@@ -41,6 +41,11 @@
             <Label Content="A végösszeg:" Name="finalprice"></Label>
             <Button x:Name="finishfoglalas" Click="Finishfoglalas" Height="20" Width="120">Foglalás véglegesítése</Button>
         </StackPanel>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="1" Width="200" Height="20" Name="roomdiary" Click="roomdiary_Click">Szobák állapota, eddigi foglalások</Button>
+        <StackPanel HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Bottom">
+            <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200" Height="20" Name="roomdiary" Click="roomdiary_Click" Margin="10">Szobák állapota, eddigi foglalások</Button>
+            <Button x:Name="Statisztika" Click="Statisztika_Click" Width="200" Height="20" Margin="10">Statisztika megjelenítése</Button>
+        </StackPanel>
+        
+       
     </Grid>
 </Window>

@@ -10,12 +10,12 @@ namespace DreamStay
     {
         int szobaszam;
         int ferohelyekszama;
-        int ar;
+        double ar;
         bool foglalte=false;
         double fizetedendo;
         string allapot;
 
-        public Szoba(int szobaszam, int ferohelyekszama, int ar, bool foglalte, double fizetedendo, string allapot)
+        public Szoba(int szobaszam, int ferohelyekszama, double ar, bool foglalte, double fizetedendo, string allapot)
         {
             this.Szobaszam = szobaszam;
             this.Ferohelyekszama = ferohelyekszama;
@@ -27,7 +27,7 @@ namespace DreamStay
 
         public int Szobaszam { get => szobaszam; set => szobaszam = value; }
         public int Ferohelyekszama { get => ferohelyekszama; set => ferohelyekszama = value; }
-        public int Ar { get => ar; set => ar = value; }
+        public double Ar { get => ar; set => ar = value; }
         public bool Foglalte { get => foglalte; set => foglalte = value; }
         public double Fizetedendo { get => fizetedendo; set => fizetedendo = value; }
         public string Allapot { get => allapot; set => allapot = value; }

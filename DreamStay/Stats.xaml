@@ -1,0 +1,19 @@
+﻿<Window x:Class="DreamStay.Stats"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DreamStay"
+        mc:Ignorable="d"
+        Title="Stats" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Label Name="lblBevetel">Bevétel:</Label>
+            <Label Name="lblSzobak">Legtöbbet kiadott szoba:</Label>
+            <Label Name="lblSzemelyek">Személyek listája:</Label>
+        </StackPanel>
+
+        
+        <!--   Bevétel tól-ig ||     legtöbbet kiadott szoba ||  személyek listája, fizetés alapján ||    -->
+    </Grid>
+</Window>

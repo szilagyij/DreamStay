@@ -16,6 +16,9 @@
     <Compile Update="RoomDiary.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Stats.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Afterlogin.xaml">
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RoomDiary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Stats.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
