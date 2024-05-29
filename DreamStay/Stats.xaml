@@ -12,6 +12,7 @@
             <Label Name="lblSzobak">Legtöbbet kiadott szoba:</Label>
             <Label Name="lblSzemelyek">Személyek listája:</Label>
         </StackPanel>
+        <Button VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="120" Height="20" Margin="10" Name="back" Click="back_Click">Vissza</Button>
 
         
         <!--   Bevétel tól-ig ||     legtöbbet kiadott szoba ||  személyek listája, fizetés alapján ||    -->

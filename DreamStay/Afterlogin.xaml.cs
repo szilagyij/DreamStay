@@ -143,10 +143,16 @@ namespace DreamStay
 
         private void Statisztika_Click(object sender, RoutedEventArgs e)
         {
-            stats=new Stats();
-            stats.Show();
-            this.Close();
-
+            if (Szobalog.Count<=0)
+            {
+                MessageBox.Show("Nincsenek foglalások még.");
+            }
+            else
+            {
+                stats = new Stats();
+                stats.Show();
+                this.Close();
+            }
         }
     }
 }

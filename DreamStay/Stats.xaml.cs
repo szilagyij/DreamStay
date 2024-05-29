@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace DreamStay
 {
     /// <summary>
@@ -19,6 +20,7 @@ namespace DreamStay
     /// </summary>
     public partial class Stats : Window
     {
+        Afterlogin afterlogin;
         public Stats()
         {
             InitializeComponent();
@@ -39,7 +41,8 @@ namespace DreamStay
                 }
             }
 
-            lblBevetel.Content = $"Az összes bevétel: {osszesar} Ft\nA legkisebb bevétel: {Afterlogin.Szobalog[minimumar].Ar} Ft\nA legnagyobb bevétel: {Afterlogin.Szobalog[maximumar].Ar} Ft";
+                lblBevetel.Content = $"Az összes bevétel: {osszesar} Ft\nA legkisebb bevétel: {Afterlogin.Szobalog[minimumar].Ar} Ft\nA legnagyobb bevétel: {Afterlogin.Szobalog[maximumar].Ar} Ft";
+            
 
 
 
@@ -77,15 +80,19 @@ namespace DreamStay
                 szemelyekszama[item.Nev] = osszeg; 
             }
 
-            // Címkére állítás
             string labelContent = "Személyek listája:\n";
             foreach (var kvp in szemelyekszama)
             {
                 labelContent += $"\t{kvp.Key}: {kvp.Value}\n";
             }
             lblSzemelyek.Content = labelContent;
+        }
 
-            // Bevétel tól-ig ||     legtöbbet kiadott szoba ||  személyek listája, fizetés alapján ||   
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            afterlogin = new Afterlogin();
+            afterlogin.Show();
+            this.Close();
         }
     }
 }
