@@ -99,7 +99,7 @@ namespace DreamStay
                         finalprice.Content = $"A végösszeg: {(szobalista[int.Parse(szam) - 1].Fizetedendo) * int.Parse(txbfok.Text)} Ft";
                         szobalista[int.Parse(szam) - 1].Foglalte = true;
 
-                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam, double.Parse(finalprice.Content.ToString().Split(' ')[2]), "foglalt"));
+                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam, double.Parse(finalprice.Content.ToString().Split(' ')[2]), int.Parse(txbfok.Text), "foglalt"));
                         clicked.IsEnabled = false;
                         MessageBox.Show("Sikeres foglalás");
                     }
@@ -116,7 +116,7 @@ namespace DreamStay
                         szobalista[int.Parse(szam) - 1].Foglalte = true;
                         clicked.IsEnabled = false;
 
-                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam,double.Parse(finalprice.Content.ToString().Split(' ')[2]), "foglalt"));
+                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam,double.Parse(finalprice.Content.ToString().Split(' ')[2]), int.Parse(txbfok.Text), "foglalt"));
                         MessageBox.Show("Sikeres foglalás");
                     }
                     else

@@ -60,16 +60,18 @@ namespace DreamStay
             stck.Visibility = Visibility.Visible;
             szam = (sender as Button).Content.ToString();
             clicked = sender as Button;
-            finalprice.Content = $"A végösszeg: {Afterlogin.szobalista[int.Parse(szam) - 1].Fizetedendo} Ft";
-
+            finalprice.Content = $"A szoba ára egy főre: {Afterlogin.szobalista[int.Parse(szam) - 1].Fizetedendo} Ft"
+            txballapot.Content = "Állapot: Nem foglalt";
             for (int i = 0; i < Afterlogin.Szobalog.Count; i++)
             {
 
                 if (Afterlogin.Szobalog[i].Szobaszam == int.Parse(szam) && Afterlogin.Szobalog[i].Allapot == "foglalt")
                 {
+                    double vegosszeg= Afterlogin.szobalista[int.Parse(szam) - 1].Fizetedendo * Afterlogin.Szobalog[int.Parse(szam) - 1].Hanyfo
                     textBoxazon.Text = Afterlogin.Szobalog[i].Azon;
                     textboxszobaszam.Text = Afterlogin.Szobalog[i].Szobaszam.ToString();
                     txballapot.Content = $"Állapot: {Afterlogin.Szobalog[i].Allapot.ToString()}";
+                    finalprice.Content = $"A fizetendő összeg a szobáért: {vegosszeg} Ft";
                     current = i;
                 }
 
