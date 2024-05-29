@@ -36,7 +36,7 @@ namespace DreamStay
 
             for (int i = 0; i < 9; i++)
             {
-                string def = "előjegyzett";
+                string def = "Előjegyzett";
                 int szobaara=rnd.Next(6000,12000);
                 szobalista.Add(new Szoba(i,rnd.Next(2,4),szobaara,false,szobaara,def));
             }
@@ -58,7 +58,7 @@ namespace DreamStay
                 {
                     foreach (var szoba in Szobalog)
                     {
-                        if (szoba.Allapot == "foglalt" && button.Name == $"btn{szoba.Szobaszam}")
+                        if (szoba.Allapot == "Előjegyzett" && button.Name == $"btn{szoba.Szobaszam}")
                         {
                             button.IsEnabled = false;
                         }
@@ -99,7 +99,7 @@ namespace DreamStay
                         finalprice.Content = $"A végösszeg: {(szobalista[int.Parse(szam) - 1].Fizetedendo) * int.Parse(txbfok.Text)} Ft";
                         szobalista[int.Parse(szam) - 1].Foglalte = true;
 
-                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam, double.Parse(finalprice.Content.ToString().Split(' ')[2]), int.Parse(txbfok.Text), "foglalt"));
+                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam, double.Parse(finalprice.Content.ToString().Split(' ')[2]), int.Parse(txbfok.Text),DateTime.Parse(txberkz.Text), DateTime.Parse(txbtavozas.Text), "Előjegyzett"));
                         clicked.IsEnabled = false;
                         MessageBox.Show("Sikeres foglalás");
                     }
@@ -116,7 +116,7 @@ namespace DreamStay
                         szobalista[int.Parse(szam) - 1].Foglalte = true;
                         clicked.IsEnabled = false;
 
-                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam,double.Parse(finalprice.Content.ToString().Split(' ')[2]), int.Parse(txbfok.Text), "foglalt"));
+                        Szobalog.Add(new RoomLog(textBoxnev.Text, textBoxnev.Text + textboxmail.Text, szobalista[int.Parse(szam)].Szobaszam, double.Parse(finalprice.Content.ToString().Split(' ')[2]), int.Parse(txbfok.Text), DateTime.Parse(txberkz.Text), DateTime.Parse(txbtavozas.Text), "Előjegyzett"));
                         MessageBox.Show("Sikeres foglalás");
                     }
                     else

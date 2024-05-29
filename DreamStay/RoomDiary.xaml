@@ -11,7 +11,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid Grid.Column="1" Name="dgrSzobak"></DataGrid>
+        <DataGrid Grid.Column="1" Name="dgrSzobak" SelectionChanged="dgrSzobak_SelectionChanged"></DataGrid>
 
         <StackPanel>
             <Button Width="60" Height="20" Name="btnVissza" Click="btnVissza_Click" HorizontalAlignment="Left">Vissza</Button>
@@ -29,19 +29,22 @@
                 <Button Height="30" Width="50"  Name="btn8" Click="foglalas" Content="8" Margin="15"></Button>
                 <Button Height="30" Width="50"  Name="btn9" Click="foglalas" Content="9" Margin="15"></Button>
             </StackPanel>
-        </StackPanel>
-        
-        
-        
-        <StackPanel Grid.Column="0" Name="stck" VerticalAlignment="Bottom">
-            <Label Content="Azonosító:"></Label>
-            <TextBox x:Name="textBoxazon" ></TextBox>
-            <Label Content="Szobaszam"></Label>
-            <TextBox Name="textboxszobaszam" ></TextBox>
-            <Label Content="Állapot:" x:Name="txballapot"></Label>
 
-            <Label Content="A végösszeg:" Name="finalprice"></Label>
-            <StackPanel x:Name="stckgombok" Orientation="Horizontal"></StackPanel>
+            <StackPanel Grid.Column="0" Name="stck" >
+                <Label Content="Azonosító:"></Label>
+                <TextBox x:Name="textBoxazon" ></TextBox>
+                <Label Content="Szobaszam"></Label>
+                <TextBox Name="textboxszobaszam" ></TextBox>
+                <Label Name="lbldatumok"></Label>
+                <Label Content="Állapot:" x:Name="txballapot"></Label>
+
+                <Label Content="A végösszeg:" Name="finalprice"></Label>
+                <StackPanel x:Name="stckgombok" Orientation="Horizontal"></StackPanel>
+            </StackPanel>
         </StackPanel>
+        
+        
+        
+       
     </Grid>
 </Window>

@@ -33,6 +33,13 @@
             <TextBox x:Name="textBoxnev" ></TextBox>
             <Label Content="Születés dátuma"></Label>
             <DatePicker Name="textboxszuldatum" ></DatePicker>
+
+            <Label Content="Érkezés dátuma"></Label>
+            <DatePicker Name="txberkz" ></DatePicker>
+
+            <Label Content="Távozás dátuma"></Label>
+            <DatePicker Name="txbtavozas" ></DatePicker>
+
             <Label Content="Email:"></Label>
             <TextBox x:Name="textboxmail"></TextBox>
             <Label Content="Hány főre?"></Label>
