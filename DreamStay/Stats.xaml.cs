@@ -41,8 +41,9 @@ namespace DreamStay
                 }
             }
 
-                lblBevetel.Content = $"Az összes bevétel: {osszesar} Ft\nA legkisebb bevétel: {Afterlogin.Szobalog[minimumar].Ar} Ft\nA legnagyobb bevétel: {Afterlogin.Szobalog[maximumar].Ar} Ft";
-            
+            lblBevetel.Content = osszesar+"Ft";
+            lbllegkisebb.Content = Afterlogin.Szobalog[minimumar].Ar+"Ft";
+            lbllegnagy.Content = Afterlogin.Szobalog[maximumar].Ar+"Ft";
 
 
 

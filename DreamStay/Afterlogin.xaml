@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:DreamStay"
         mc:Ignorable="d"
         Title="Afterlogin" Height="450" Width="800">
+
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500"/>
@@ -46,11 +48,12 @@
             <TextBox x:Name="txbfok"></TextBox>
             <CheckBox x:Name="cboxvip">Feliratokozik a hírlevélre?</CheckBox>
             <Label Content="A végösszeg:" Name="finalprice"></Label>
-            <Button x:Name="finishfoglalas" Click="Finishfoglalas" Height="20" Width="120">Foglalás véglegesítése</Button>
+            
         </StackPanel>
         <StackPanel HorizontalAlignment="Center" Grid.Column="1" VerticalAlignment="Bottom">
+            <Button x:Name="finishfoglalas" Click="Finishfoglalas" Height="20" Width="200" Margin="5" Background="#0ca754"  Foreground="White" RenderTransformOrigin="0.5,0.5"  >Foglalás véglegesítése</Button>
             <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200" Height="20" Name="roomdiary" Click="roomdiary_Click" Margin="10">Szobák állapota, eddigi foglalások</Button>
-            <Button x:Name="Statisztika" Click="Statisztika_Click" Width="200" Height="20" Margin="10">Statisztika megjelenítése</Button>
+            <Button x:Name="Statisztika" Click="Statisztika_Click" Width="200" Height="20" Margin="5">Statisztika megjelenítése</Button>
         </StackPanel>
         
        

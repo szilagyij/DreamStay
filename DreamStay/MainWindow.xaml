@@ -10,7 +10,7 @@
     <Grid>
 
         <DockPanel>
-            <Image Source="C:\Users\Rendszergazda\Desktop\CHESTEG\DreamStay\DreamStay\images\logo.jpg" Width="200" VerticalAlignment="Top"></Image>
+            <Image Source=".\images\logo.jpg" Width="200" VerticalAlignment="Top"></Image>
         </DockPanel>
         <StackPanel VerticalAlignment="Center">
             

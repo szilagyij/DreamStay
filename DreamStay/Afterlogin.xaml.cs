@@ -74,10 +74,12 @@ namespace DreamStay
             textBoxnev.Text = "";
             textboxszuldatum.Text = "";
             cboxvip.IsChecked= false;
+            txberkz.Text = "";
+            txbtavozas.Text = "";
             stck.Visibility = Visibility.Visible;
             szam = (sender as Button).Content.ToString();
             clicked = sender as Button;
-            finalprice.Content = $"A végösszeg: {szobalista[int.Parse(szam) - 1].Fizetedendo}";
+            finalprice.Content = $"A végösszeg: {szobalista[int.Parse(szam) - 1].Fizetedendo} Ft";
 
 
         }
